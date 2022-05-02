@@ -1,1 +1,2 @@
 INSERT INTO user (name, email, image_url, bio) VALUES ('Test User', 'test@mail.com', 'image', 'About me');
+INSERT INTO user (name, email, image_url, bio) VALUES ('Test User2', 'test2@mail.com', 'image', 'About me');
