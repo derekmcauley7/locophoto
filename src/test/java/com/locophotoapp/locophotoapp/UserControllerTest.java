@@ -24,7 +24,7 @@ class UserControllerTest {
 
     @Test
     @Sql(value = {"/import_test_users.sql"})
-    public void shouldGetAListOfUsers() {
+    public void shouldReturnAllUsers() {
         assertTrue(userController.allUsers().size() >= 2);
     }
 
@@ -68,25 +68,28 @@ class UserControllerTest {
     @Test
     public void shouldFindUserByEmail(){
         // given:
+        String userEmail = "newuser@gmail.com";
+        String userName = "new user";
+
         Map<String, String> body = new HashMap<>();
-        body.put("name", "new user");
-        body.put("email", "newuser@gmail.com");
+        body.put("name", userName);
+        body.put("email", userEmail);
 
         userController.createUser(body);
 
         // when:
-        User userByEmail = userController.getUserByEmail("newuser@gmail.com");
+        User userByEmail = userController.getUserByEmail(userEmail);
 
         // then:
-        assertEquals("newuser@gmail.com", userByEmail.getEmail());
-        assertEquals("new user", userByEmail.getName());
+        assertEquals(userEmail, userByEmail.getEmail());
+        assertEquals(userName, userByEmail.getName());
     }
 
     @Test
     public void shouldGetUserByID(){
         // given:
         Map<String, String> body = new HashMap<>();
-        body.put("name", "New UserID");
+        body.put("name", "New User");
         body.put("email", "newiduser@gmail.com");
 
         User createdUser = userController.createUser(body);
@@ -100,11 +103,13 @@ class UserControllerTest {
 
     @Test
     public void shouldThrowExceptionWhenUserIsNotFound(){
+        String errorMessage = null;
         try {
             userController.getUserById("111111");
 
         } catch (IllegalStateException e) {
-            assertEquals(e.getMessage(), "User not found");
+            errorMessage = e.getMessage();
         }
+        assertEquals(errorMessage, "User not found");
     }
 }
