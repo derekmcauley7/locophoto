@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Optional;
 
 @Entity
 public class Image {
@@ -132,18 +133,15 @@ public class Image {
     }
 
     public void increaseViews() {
-        int newViewsTotal = this.views == null ? 1 : this.views + 1;
-        setViews(newViewsTotal);
+        setViews(Optional.ofNullable(views).orElse(0) +1);
     }
 
     public void increaseLikes() {
-        int numberOfLikesPlusOne = this.likes  == null ? 1 : likes + 1;
-        this.likes = numberOfLikesPlusOne;
+        setLikes(Optional.ofNullable(likes).orElse(0) +1);
     }
 
     public void decreaseLikes() {
-        int numberOfLikeMinusOne = this.getLikes() == null ? 0 : this.getLikes().intValue() - 1;
-        this.likes = numberOfLikeMinusOne;
+        setLikes(Optional.ofNullable(likes).orElse(0) -1);
     }
 
 }
