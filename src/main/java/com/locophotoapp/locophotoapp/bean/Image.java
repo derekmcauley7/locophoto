@@ -132,6 +132,7 @@ public class Image {
         this.id = id;
     }
 
+    //TODO users can like an image more than once
     public void increaseViews() {
         setViews(Optional.ofNullable(views).orElse(0) +1);
     }
