@@ -19,7 +19,7 @@ public class ImageController {
     private ImageRepository imageRepository;
 
     @Autowired
-    private Map map;
+    public Map map;
 
     private Logger logger = LoggerFactory.getLogger(ImageController.class);
 
@@ -30,7 +30,7 @@ public class ImageController {
     }
 
     @GetMapping("/allImages/{lat}/{lng}")
-    List<Image> search(@PathVariable("lat") String lat, @PathVariable("lng") String lng) {
+    public List<Image> search(@PathVariable("lat") String lat, @PathVariable("lng") String lng) {
         String city = map.getCity(lat, lng);
         logger.info("Getting images for city " + city + ". Using lat : " + lat + " Long: " + lng);
         return imageRepository.findByCityContaining(city);

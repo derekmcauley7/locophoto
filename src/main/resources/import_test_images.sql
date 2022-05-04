@@ -1,2 +1,2 @@
-INSERT INTO image (lat, lng, city, userID, date, url, views, likes, comment, deleted) VALUES (53.3498,6.2603, 'Dublin', '1', '2022-05-03', 'imageurl', 0, 0, '', 0);
-INSERT INTO image (lat, lng, city, userID, date, url, views, likes, comment, deleted) VALUES (51.8985,8.4756, 'Cork', '1', '2022-05-04', 'imageurl', 0, 0, '', 0);
+INSERT INTO image (lat, lng, city, userID, date, url, views, likes, comment, deleted) VALUES (53.3498,6.2603, 'Dublin', '1', '2022-05-03', 'imageurl', 2, 0, '', 0);
+INSERT INTO image (lat, lng, city, userID, date, url, views, likes, comment, deleted) VALUES (51.8985,8.4756, 'Cork', '1', '2022-05-04', 'imageurl', 4, 0, '', 0);
