@@ -35,7 +35,7 @@ public class ImageControllerTest {
     public void shouldReturnImageUsingLatAndLong(){
         // given:
         imageController.map = mapImpl;
-        Mockito.doReturn("Dublin").when(mapImpl).getCity("53.3498","6.2603");
+        Mockito.doReturn("Dublin").when(imageController.map).getCity("53.3498","6.2603");
 
         // when:
         Image image = imageController.search("53.3498","6.2603").get(0);
