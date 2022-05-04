@@ -15,5 +15,5 @@ interface ImageRepository extends JpaRepository<Image, String> {
     List<Image> findByCityContaining(String city);
 
     @Query("SELECT e FROM Image e WHERE e.userID =?1 AND (e.deleted is null or e.deleted=false)")
-    List<Image> findByUserID(Integer id);
+    List<Image> findByUserID(String id);
 }

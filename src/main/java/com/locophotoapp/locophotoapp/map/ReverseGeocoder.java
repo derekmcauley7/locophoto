@@ -1,6 +1,6 @@
 package com.locophotoapp.locophotoapp.map;
 
 
-public interface Map {
+public interface ReverseGeocoder {
     String getCity(String lat, String lng);
 }

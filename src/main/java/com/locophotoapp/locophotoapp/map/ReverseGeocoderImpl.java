@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class MapImpl implements Map {
+public class ReverseGeocoderImpl implements ReverseGeocoder {
 
     @Resource
     MapAPI mapAPI;
 
-    public MapImpl(MapAPI mapAPI) {
+    public ReverseGeocoderImpl(MapAPI mapAPI) {
         this.mapAPI = mapAPI;
     }
 
