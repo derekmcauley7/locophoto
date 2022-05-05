@@ -31,16 +31,27 @@ class UserControllerTest {
     @Test
     public void shouldCreateAUser(){
         // given:
-        Map<String, String> body = new HashMap<>();
-        body.put("name", "Bob Dylan");
-        body.put("email", "bobdylan@gmail.com");
+        Map<String, String> user1Body = new HashMap<>();
+        user1Body.put("name", "Bob Dylan");
+        user1Body.put("email", "bobdylan@gmail.com");
+        user1Body.put("imageUrl", "imageurl.png");
+
+        Map<String, String> user2Body = new HashMap<>();
+        user2Body.put("name", "Bob Dylan");
+        user2Body.put("email", "bobdylan2@gmail.com");
 
         // when:
-        User user = userController.createUser(body);
+        User user1 = userController.createUser(user1Body);
+        User user2 = userController.createUser(user2Body);
 
         // then:
-        assertEquals(user.getEmail(), "bobdylan@gmail.com");
-        assertEquals(user.getName(), "Bob Dylan");
+        assertEquals(user1.getEmail(), "bobdylan@gmail.com");
+        assertEquals(user1.getName(), "Bob Dylan");
+        assertEquals(user1.getImageUrl(), "imageurl.png");
+
+        assertEquals(user2.getEmail(), "bobdylan2@gmail.com");
+        assertEquals(user2.getName(), "Bob Dylan");
+        assertEquals(user2.getImageUrl(), "https://accessibility-checker.s3-eu-west-1.amazonaws.com/default.jpg");
     }
 
     @Test

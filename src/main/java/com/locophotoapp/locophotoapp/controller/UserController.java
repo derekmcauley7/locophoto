@@ -27,16 +27,19 @@ public class UserController {
     @PostMapping(value="/user")
     public User createUser(@RequestBody Map<String, String> body) {
         String name = body.get("name");
-        Optional<String> imageUrl = Optional.ofNullable(body.get("imageUrl"));
 
-        if (!imageUrl.isPresent()) {
-            imageUrl = Optional.of("https://accessibility-checker.s3-eu-west-1.amazonaws.com/default.jpg");
-        }
         String email = body.get("email");
 
         Optional<User> user1 = Optional.ofNullable(userRepository.findByEmail(email));
 
-        return user1.orElse(userRepository.save(new User(email, name, imageUrl.get() , "")));
+        return user1.orElse(
+                userRepository.save(
+                        new User(email,
+                                name,
+                                Optional.ofNullable(body.get("imageUrl"))
+                                        .orElse("https://accessibility-checker.s3-eu-west-1.amazonaws.com/default.jpg"),
+                                ""))
+        );
     }
 
     @PostMapping(value="/updateUser")

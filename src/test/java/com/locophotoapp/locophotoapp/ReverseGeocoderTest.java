@@ -6,9 +6,7 @@ import com.amazonaws.util.IOUtils;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
 import javax.annotation.Resource;
-
 import java.io.FileInputStream;
 import java.io.InputStream;
 

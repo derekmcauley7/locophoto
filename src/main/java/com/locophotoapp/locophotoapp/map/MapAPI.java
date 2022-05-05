@@ -2,7 +2,6 @@ package com.locophotoapp.locophotoapp.map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -21,8 +20,9 @@ public class MapAPI {
         InputStreamReader isr = new InputStreamReader(conn.getInputStream());
         StringBuffer sbLocation = new StringBuffer();
 
-        for (int i=0; i != -1; i = isr.read())
+        for (int i=0; i != -1; i = isr.read()) {
             sbLocation.append((char) i);
+        }
 
         String getContent = sbLocation.toString().trim();
         return getContent;
