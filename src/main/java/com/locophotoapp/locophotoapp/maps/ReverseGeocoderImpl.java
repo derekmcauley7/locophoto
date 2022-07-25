@@ -1,4 +1,4 @@
-package com.locophotoapp.locophotoapp.map;
+package com.locophotoapp.locophotoapp.maps;
 
 import org.apache.http.util.TextUtils;
 import org.json.JSONArray;
@@ -6,21 +6,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
+import java.io.IOException;
 
 @Component
-public class ReverseGeocoderImpl implements ReverseGeocoder {
+class ReverseGeocoderImpl implements ReverseGeocoder {
 
     @Resource
     MapAPI mapAPI;
 
-    public ReverseGeocoderImpl(MapAPI mapAPI) {
+    private ReverseGeocoderImpl(MapAPI mapAPI) {
         this.mapAPI = mapAPI;
     }
 
     @Override
     public String getCity(String lat, String lng) {
         try {
-            String getContent = mapAPI.getGeoResults(lat, lng);
+            String getContent = getGeoResults(lat, lng);
             if (getContent.contains("results")) {
                 String temp = getContent.substring(getContent.indexOf("["));
                 JSONArray JSONArrayForAll = new JSONArray(temp);
@@ -34,6 +35,10 @@ public class ReverseGeocoderImpl implements ReverseGeocoder {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private String getGeoResults(String lat, String lng) throws IOException {
+        return mapAPI.getGeoResults(lat, lng);
     }
 
     private String getCityNameFromAddress(JSONArray addressComponents) throws JSONException {

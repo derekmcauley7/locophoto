@@ -1,4 +1,4 @@
-package com.locophotoapp.locophotoapp.map;
+package com.locophotoapp.locophotoapp.maps;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -8,12 +8,12 @@ import java.net.URL;
 import java.net.URLConnection;
 
 @Component
-public class MapAPI {
+class MapAPI {
 
     @Value(value = "${google_api_key:testingDefault}")
     String API_KEY;
 
-    public String getGeoResults(String lat, String lng) throws IOException {
+    protected String getGeoResults(String lat, String lng) throws IOException {
         URL url = new URL("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "2&key=" + API_KEY);
         URLConnection conn = url.openConnection();
         conn.connect();

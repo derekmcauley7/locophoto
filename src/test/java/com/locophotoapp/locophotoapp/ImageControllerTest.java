@@ -1,10 +1,8 @@
 package com.locophotoapp.locophotoapp;
 
-import com.locophotoapp.locophotoapp.bean.Image;
-import com.locophotoapp.locophotoapp.controller.ImageController;
-import com.locophotoapp.locophotoapp.map.ReverseGeocoderImpl;
-import com.locophotoapp.locophotoapp.repository.ImageRepository;
-import com.locophotoapp.locophotoapp.repository.UserRepository;
+import com.locophotoapp.locophotoapp.images.Image;
+import com.locophotoapp.locophotoapp.images.ImageController;
+import com.locophotoapp.locophotoapp.maps.ReverseGeocoder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -13,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,16 +21,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @AutoConfigureMockMvc
 public class ImageControllerTest {
 
-    private ReverseGeocoderImpl reverseGeocoder = Mockito.mock(ReverseGeocoderImpl.class);
+    private ReverseGeocoder reverseGeocoder = Mockito.mock(ReverseGeocoder.class);
 
     @Autowired
-    private ImageRepository imageRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    protected ImageController imageController = new ImageController(imageRepository, reverseGeocoder, userRepository);
+    protected ImageController imageController;
 
     @Test
     @Sql(value = {"/import_test_images.sql"})
