@@ -1,6 +1,6 @@
-package com.locophotoapp.locophotoapp.repository;
+package com.locophotoapp.locophotoapp.images;
 
-import com.locophotoapp.locophotoapp.bean.Image;
+import com.locophotoapp.locophotoapp.images.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public
 interface ImageRepository extends JpaRepository<Image, String> {
 
     @Query("SELECT e FROM Image e WHERE e.city LIKE %?1% AND (e.deleted is null or e.deleted=false)")

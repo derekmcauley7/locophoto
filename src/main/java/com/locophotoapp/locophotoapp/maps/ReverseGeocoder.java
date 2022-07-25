@@ -1,4 +1,4 @@
-package com.locophotoapp.locophotoapp.map;
+package com.locophotoapp.locophotoapp.maps;
 
 
 public interface ReverseGeocoder {

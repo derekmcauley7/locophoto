@@ -1,4 +1,4 @@
-package com.locophotoapp.locophotoapp.map;
+package com.locophotoapp.locophotoapp.maps;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

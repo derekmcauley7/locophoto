@@ -1,4 +1,4 @@
-package com.locophotoapp.locophotoapp.map;
+package com.locophotoapp.locophotoapp.maps;
 
 import org.apache.http.util.TextUtils;
 import org.json.JSONArray;

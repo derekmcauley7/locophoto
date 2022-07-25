@@ -1,7 +1,7 @@
-package com.locophotoapp.locophotoapp.controller;
+package com.locophotoapp.locophotoapp.users;
 
-import com.locophotoapp.locophotoapp.bean.User;
-import com.locophotoapp.locophotoapp.repository.UserRepository;
+import com.locophotoapp.locophotoapp.users.User;
+import com.locophotoapp.locophotoapp.users.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

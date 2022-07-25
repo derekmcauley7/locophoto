@@ -1,4 +1,4 @@
-package com.locophotoapp.locophotoapp.bean;
+package com.locophotoapp.locophotoapp.users;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

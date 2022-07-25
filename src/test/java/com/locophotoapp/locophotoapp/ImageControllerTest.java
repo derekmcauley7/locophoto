@@ -1,10 +1,8 @@
 package com.locophotoapp.locophotoapp;
 
-import com.locophotoapp.locophotoapp.bean.Image;
-import com.locophotoapp.locophotoapp.controller.ImageController;
-import com.locophotoapp.locophotoapp.map.ReverseGeocoderImpl;
-import com.locophotoapp.locophotoapp.repository.ImageRepository;
-import com.locophotoapp.locophotoapp.repository.UserRepository;
+import com.locophotoapp.locophotoapp.images.Image;
+import com.locophotoapp.locophotoapp.images.ImageController;
+import com.locophotoapp.locophotoapp.maps.ReverseGeocoderImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -26,14 +24,9 @@ public class ImageControllerTest {
 
     private ReverseGeocoderImpl reverseGeocoder = Mockito.mock(ReverseGeocoderImpl.class);
 
-    @Autowired
-    private ImageRepository imageRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    protected ImageController imageController = new ImageController(imageRepository, reverseGeocoder, userRepository);
+    protected ImageController imageController;
 
     @Test
     @Sql(value = {"/import_test_images.sql"})

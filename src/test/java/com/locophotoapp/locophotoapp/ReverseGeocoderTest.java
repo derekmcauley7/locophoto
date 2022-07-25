@@ -1,7 +1,7 @@
 package com.locophotoapp.locophotoapp;
 
-import com.locophotoapp.locophotoapp.map.MapAPI;
-import com.locophotoapp.locophotoapp.map.ReverseGeocoderImpl;
+import com.locophotoapp.locophotoapp.maps.MapAPI;
+import com.locophotoapp.locophotoapp.maps.ReverseGeocoderImpl;
 import com.amazonaws.util.IOUtils;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;

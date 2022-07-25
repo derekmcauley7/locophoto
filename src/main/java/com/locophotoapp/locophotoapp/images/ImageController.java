@@ -1,13 +1,10 @@
-package com.locophotoapp.locophotoapp.controller;
+package com.locophotoapp.locophotoapp.images;
 
-import com.locophotoapp.locophotoapp.bean.Image;
-import com.locophotoapp.locophotoapp.bean.User;
-import com.locophotoapp.locophotoapp.map.ReverseGeocoder;
-import com.locophotoapp.locophotoapp.repository.ImageRepository;
-import com.locophotoapp.locophotoapp.repository.UserRepository;
+import com.locophotoapp.locophotoapp.users.User;
+import com.locophotoapp.locophotoapp.maps.ReverseGeocoder;
+import com.locophotoapp.locophotoapp.users.UserController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,12 +19,12 @@ public class ImageController {
 
     private ImageRepository imageRepository;
 
-    private UserRepository userRepository;
+    private UserController userController;
 
-    public ImageController(ImageRepository imageRepository, ReverseGeocoder reverseGeocoder, UserRepository userRepository) {
+    public ImageController(ImageRepository imageRepository, ReverseGeocoder reverseGeocoder, UserController userController) {
         this.imageRepository = imageRepository;
         this.reverseGeocoder = reverseGeocoder;
-        this.userRepository = userRepository;
+        this.userController = userController;
     }
 
     private Logger logger = LoggerFactory.getLogger(ImageController.class);
@@ -47,7 +44,7 @@ public class ImageController {
 
     @GetMapping("/userImages/{email}")
     public List<Image> searchByUser(@PathVariable("email") String email) {
-        User user = userRepository.findByEmail(email);
+        User user = userController.getUserByEmail(email);
         return imageRepository.findByUserID(Optional.ofNullable(String.valueOf(user.getId())).orElse("0"));
     }
 

@@ -1,7 +1,7 @@
 package com.locophotoapp.locophotoapp;
 
-import com.locophotoapp.locophotoapp.bean.User;
-import com.locophotoapp.locophotoapp.controller.UserController;
+import com.locophotoapp.locophotoapp.users.User;
+import com.locophotoapp.locophotoapp.users.UserController;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

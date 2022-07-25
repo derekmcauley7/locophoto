@@ -1,6 +1,6 @@
 package com.locophotoapp.locophotoapp;
 
-import com.locophotoapp.locophotoapp.bean.Image;
+import com.locophotoapp.locophotoapp.images.Image;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
